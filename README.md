@@ -1,10 +1,10 @@
-<p style="text-align: center;">
+<p align="center">
   <img src="readmeLogo.png" alt="plain-dev by Aethreya" width="480" style="display: block; margin: 0 auto;">
 </p>
 
 <h3 align="center">Software testing and coding, explained in plain English.</h3>
 
-<p style="text-align: center;">
+<p align="center">
   <a href="https://akashgkrishna.github.io/plain-dev/"><img src="https://img.shields.io/badge/Live-akashgkrishna.github.io%2Fplain--dev-16A34A?style=flat-square" alt="Live on GitHub Pages"></a>
   <a href="#tech-stack"><img src="https://img.shields.io/badge/Dependencies-Zero-38BDF8?style=flat-square" alt="Zero Dependencies"></a>
   <a href="LICENSE"><img src="https://img.shields.io/github/license/akashgkrishna/plain-dev?style=flat-square&color=FBBF24" alt="License"></a>
