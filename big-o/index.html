@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Big O Notation Explained Simply: Time and Space Complexity for Beginners (Interactive)</title>
+    <title>Big O Notation Explained Simply - Time and Space Complexity for Beginners (Interactive)</title>
     <meta name="description"
           content="Learn Big O notation in plain English. Interactive demos, three tiny starter programs, a binary search stepper and a quiz. No maths needed.">
     <link rel="canonical" href="https://akashgkrishna.github.io/plain-dev/big-o/">
@@ -70,10 +70,15 @@
         *{box-sizing:border-box}
         body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.65 Figtree,system-ui,sans-serif}
         h1,h2,h3{font-family:'Bricolage Grotesque',Figtree,system-ui,sans-serif;line-height:1.1;margin:0}
-        .hero{background:var(--hero);color:#fff;padding:56px 20px 44px}
+        .hero{background:var(--hero);color:#fff;padding:44px 20px 44px}
         .wrap{max-width:720px;margin:0 auto;padding:0 20px}
         .hero .wrap{padding:0}
-        .back{display:inline-block;color:#FBBF24;font-weight:600;text-decoration:none;margin-bottom:18px}
+        .brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none;margin-bottom:24px}
+        .brand-mark{width:clamp(56px,8vw,66px);height:auto;flex-shrink:0}
+        .brand-text{display:flex;flex-direction:column}
+        .brand-name{font-family:'Bricolage Grotesque',Figtree,system-ui,sans-serif;font-size:clamp(30px,5vw,38px);font-weight:800;letter-spacing:-.025em;line-height:1;color:#fff}
+        .brand-name .dev{color:#38BDF8}
+        .brand-by{font-family:Figtree,system-ui,sans-serif;font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:#B8B4E3;margin-top:5px;padding-left:1px}
         h1{font-size:clamp(34px,7vw,56px);font-weight:800;margin-bottom:14px}
         .hero p{color:#CFCBF5;margin:0 0 26px;max-width:34em}
         .demo{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px}
@@ -101,7 +106,7 @@
         .box.out{opacity:.35;border-color:var(--bd)}.box.mid{background:var(--amber);border-color:var(--c4)}.box.hit{background:var(--c1);color:#fff;border-color:var(--c1)}
         button,select{font:inherit;border-radius:10px;border:2px solid var(--fg);background:var(--card);color:var(--fg);padding:8px 14px;cursor:pointer;min-height:44px}
         button.go{background:var(--c3);border-color:var(--c3);color:#fff;font-weight:600}
-        button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--c4);outline-offset:2px}
+        button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--c4);outline-offset:2px}
         .opts{display:flex;gap:8px;flex-wrap:wrap}
         .ok{background:var(--c1)!important;border-color:var(--c1)!important;color:#fff}.no{background:var(--c5)!important;border-color:var(--c5)!important;color:#fff}
         .fb{margin:8px 0 0;min-height:1.6em;font-size:16px}
@@ -114,11 +119,31 @@
         .hero a.dl{color:#FBBF24}
         @media(prefers-reduced-motion:reduce){.bar{transition:none}}
     </style>
+
+    <link rel="icon" type="image/png" href="../icon2.png">
+
 </head>
 <body>
 <header class="hero">
     <div class="wrap">
-        <a class="back" href="../">&larr; Plain Dev</a>
+        <a class="brand" href="../" aria-label="Plain Dev by Aethreya home">
+            <svg class="brand-mark" viewBox="4 2 98 78" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 aria-hidden="true">
+                <path d="M34 22L12 46L34 70" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M33 47L46 60L74 26" stroke="#38BDF8" stroke-width="11" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M78 36L90 48L68 70" stroke="#4ADE80" stroke-width="11" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M78 15V7" stroke="#38BDF8" stroke-width="4.5" stroke-linecap="round"/>
+                <path d="M86 18L92 12" stroke="#4ADE80" stroke-width="4.5" stroke-linecap="round"/>
+                <path d="M90 26H98" stroke="#4ADE80" stroke-width="4.5" stroke-linecap="round"/>
+            </svg>
+            <div class="brand-text">
+                <span class="brand-name">plain-<span class="dev">dev</span></span>
+                <span class="brand-by">by Aethreya</span>
+            </div>
+        </a>
         <h1>Will your code survive 10× more data?</h1>
         <p>Big O notation answers that before your program slows down or crashes. Drag the slider and watch the work
             grow. No maths needed.</p>
@@ -230,42 +255,208 @@ return false;</pre>
                 instead of a nested loop.</p></details>
     </section>
     <footer><p><a class="dl" href="#">Read the full written guide</a> for images, interview phrases and extra practice.
-    </p>Practise by saying “Time is O(…) because…, space is O(…) because…” after every problem you solve.<p><a
-            href="../" style="color:var(--c3);font-weight:600">More guides on Plain Dev</a></p></footer>
+    </p>Practice by saying “Time is O(…) because…, space is O(…) because…” after every problem you solve.<p><a
+            href="../" style="color:var(--c3);font-weight:600">&larr; More guides on Plain Dev by Aethreya</a></p>
+    </footer>
 </main>
 
 <script>
-    var $=function(i){return document.getElementById(i)};
-    // Replace this with your Medium post URL once it is published.
-    var DOC_URL='https://claude.ai/artifact/Mk5zftNh4eWAwnXxEbTKwt';
-    document.querySelectorAll('a.dl').forEach(function(a){a.href=DOC_URL;a.target='_blank';a.rel='noopener'});
-    var defs=[['O(1)','t1',function(n){return 1}],['O(log n)','t2',function(n){return Math.max(1,Math.ceil(Math.log2(n)))}],['O(n)','t3',function(n){return n}],['O(n log n)','t4',function(n){return Math.max(1,Math.round(n*Math.log2(n)))}],['O(n²)','t5',function(n){return n*n}]];
-    var cols=['--c1','--c2','--c3','--c4','--c5'];
-    function bars(){var n=+$('n').value;$('nv').textContent=n;var mx=n*n,h='';
-    defs.forEach(function(d,i){var s=d[2](n);h+='<div class="row"><b>'+d[0]+'</b><div class="bar" style="width:'+(s/mx*100)+'%;background:var('+cols[i]+')"></div><i>'+s+'</i></div>'});
-    $('bars').innerHTML=h}
-    $('n').addEventListener('input',bars);bars();
+    // =========================================================================
+    // 1. Helpers & External Guide Links
+    // =========================================================================
 
-    var A=[2,5,8,12,16,23,38,56,72,91],lo,hi,mid,steps,done;
-    $('tg').innerHTML=A.map(function(v){return '<option'+(v===23?' selected':'')+'>'+v+'</option>'}).join('');
-    function draw(m){$('arr').innerHTML=A.map(function(v,i){var c=i===mid?(done?'hit':'mid'):(i<lo||i>hi?'out':'');return '<div class="box '+c+'">'+v+'</div>'}).join('');$('msg').textContent=m}
-    function reset(){lo=0;hi=A.length-1;mid=-1;steps=0;done=false;draw('Press Next step to check the middle item.')}
-    function nxt(){if(done)return;var t=+$('tg').value;mid=(lo+hi)>>1;steps++;var v=A[mid],m;
-    if(v===t){done=true;m='Step '+steps+': index '+mid+' holds '+v+'. Found it in '+steps+' step'+(steps>1?'s':'')+'!'}
-    else if(v<t){m='Step '+steps+': '+v+' is less than '+t+', so drop the left half.';lo=mid+1}
-    else{m='Step '+steps+': '+v+' is more than '+t+', so drop the right half.';hi=mid-1}
-    draw(m)}
-    $('nx').addEventListener('click',nxt);$('rs').addEventListener('click',reset);$('tg').addEventListener('change',reset);reset();
+    // Shorthand helper for selecting elements by ID
+    const $ = (id) => document.getElementById(id);
 
-    var Q=[['int x = list[0];','O(1)','One direct access, so the work never grows.'],
-    ['for (int x : list) print(x);','O(n)','One loop over the list.'],
-    ['for (int a : list)\n  for (int b : list)\n    print(a, b);','O(n²)','A loop inside a loop multiplies: n × n.'],
-    ['for (int i = 1; i < n; i *= 2)\n  print(i);','O(log n)','i doubles each time, so it reaches n in very few steps.']];
-    var O=['O(1)','O(log n)','O(n)','O(n²)'];
-    $('quiz').innerHTML=Q.map(function(q,i){return '<div class="card" data-i="'+i+'"><pre>'+q[0].replace(/</g,'&lt;')+'</pre><div class="opts">'+O.map(function(o){return '<button>'+o+'</button>'}).join('')+'</div><p class="fb" aria-live="polite"></p></div>'}).join('');
-    $('quiz').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var c=b.closest('.card'),q=Q[+c.dataset.i],ok=b.textContent===q[1];
-    c.querySelectorAll('button').forEach(function(x){x.classList.remove('ok','no')});b.classList.add(ok?'ok':'no');
-    c.querySelector('.fb').textContent=ok?'Correct. '+q[2]:'Not quite. Try again.'});
+    // Replace this URL with your Medium post link once published
+    const DOC_URL = 'https://claude.ai/artifact/Mk5zftNh4eWAwnXxEbTKwt';
+
+    // Point all "Read the guide" links to DOC_URL and open safely in a new tab
+    document.querySelectorAll('a.dl').forEach((link) => {
+        link.href = DOC_URL;
+        link.target = '_blank';
+        link.rel = 'noopener';
+    });
+
+
+    // =========================================================================
+    // 2. Hero Complexity Bar Chart (Interactive Slider)
+    // =========================================================================
+
+    // Each entry: [Big O label, badge class, step-count formula for input size n]
+    const COMPLEXITIES = [
+        ['O(1)',       't1', (n) => 1],
+        ['O(log n)',   't2', (n) => Math.max(1, Math.ceil(Math.log2(n)))],
+        ['O(n)',       't3', (n) => n],
+        ['O(n log n)', 't4', (n) => Math.max(1, Math.round(n * Math.log2(n)))],
+        ['O(n²)',      't5', (n) => n * n]
+    ];
+
+    // CSS color variables matching each complexity row in order
+    const BAR_COLORS = ['--c1', '--c2', '--c3', '--c4', '--c5'];
+
+    // Recalculate step counts and render proportional bars whenever slider moves
+    function renderBars() {
+        const n = +$('n').value;
+        $('nv').textContent = n;
+
+        // Scale all bar widths relative to the slowest complexity: O(n²)
+        const maxSteps = n * n;
+        let html = '';
+
+        COMPLEXITIES.forEach(([label, , calcSteps], index) => {
+            const steps = calcSteps(n);
+            const widthPercent = (steps / maxSteps) * 100;
+
+            html += `
+                <div class="row">
+                    <b>${label}</b>
+                    <div class="bar" style="width:${widthPercent}%;background:var(${BAR_COLORS[index]})"></div>
+                    <i>${steps}</i>
+                </div>`;
+        });
+
+        $('bars').innerHTML = html;
+    }
+
+    $('n').addEventListener('input', renderBars);
+    renderBars();
+
+
+    // =========================================================================
+    // 3. Binary Search Step-by-Step Visualizer
+    // =========================================================================
+
+    const SORTED_ARRAY = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
+    let low, high, mid, steps, isDone;
+
+    // Populate the target dropdown, pre-selecting 23 as the default search value
+    $('tg').innerHTML = SORTED_ARRAY
+        .map((val) => `<option${val === 23 ? ' selected' : ''}>${val}</option>`)
+        .join('');
+
+    // Render the array boxes with visual states:
+    // - 'hit' : target found
+    // - 'mid' : middle element currently being inspected
+    // - 'out' : eliminated outside the active [low, high] search range
+    function renderArray(message) {
+        $('arr').innerHTML = SORTED_ARRAY.map((val, index) => {
+            let stateClass = '';
+            if (index === mid) {
+                stateClass = isDone ? 'hit' : 'mid';
+            } else if (index < low || index > high) {
+                stateClass = 'out';
+            }
+            return `<div class="box ${stateClass}">${val}</div>`;
+        }).join('');
+
+        $('msg').textContent = message;
+    }
+
+    // Reset search pointers and step counter back to the full array
+    function resetSearch() {
+        low = 0;
+        high = SORTED_ARRAY.length - 1;
+        mid = -1;
+        steps = 0;
+        isDone = false;
+        renderArray('Press Next step to check the middle item.');
+    }
+
+    // Perform a single binary search comparison and narrow the search bounds
+    function nextStep() {
+        if (isDone) return;
+
+        const target = +$('tg').value;
+        mid = (low + high) >> 1; // Fast integer midpoint: Math.floor((low + high) / 2)
+        steps++;
+
+        const currentVal = SORTED_ARRAY[mid];
+        let message;
+
+        if (currentVal === target) {
+            isDone = true;
+            const unit = steps > 1 ? 'steps' : 'step';
+            message = `Step ${steps}: index ${mid} holds ${currentVal}. Found it in ${steps} ${unit}!`;
+        } else if (currentVal < target) {
+            message = `Step ${steps}: ${currentVal} is less than ${target}, so drop the left half.`;
+            low = mid + 1;
+        } else {
+            message = `Step ${steps}: ${currentVal} is more than ${target}, so drop the right half.`;
+            high = mid - 1;
+        }
+
+        renderArray(message);
+    }
+
+    $('nx').addEventListener('click', nextStep);
+    $('rs').addEventListener('click', resetSearch);
+    $('tg').addEventListener('change', resetSearch);
+    resetSearch();
+
+
+    // =========================================================================
+    // 4. Interactive Self-Test Quiz
+    // =========================================================================
+
+    // Each entry: [code snippet, correct Big O answer, explanation shown when correct]
+    const QUIZ_QUESTIONS = [
+        [
+            'int x = list[0];',
+            'O(1)',
+            'One direct access, so the work never grows.'
+        ],
+        [
+            'for (int x : list) print(x);',
+            'O(n)',
+            'One loop over the list.'
+        ],
+        [
+            'for (int a : list)\n  for (int b : list)\n    print(a, b);',
+            'O(n²)',
+            'A loop inside a loop multiplies: n × n.'
+        ],
+        [
+            'for (int i = 1; i < n; i *= 2)\n  print(i);',
+            'O(log n)',
+            'i doubles each time, so it reaches n in very few steps.'
+        ]
+    ];
+
+    const ANSWER_OPTIONS = ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'];
+
+    // Build all quiz cards and escape '<' in code snippets so HTML renders safely
+    $('quiz').innerHTML = QUIZ_QUESTIONS.map(([code, , ], index) => {
+        const escapedCode = code.replace(/</g, '&lt;');
+        const buttonsHtml = ANSWER_OPTIONS
+            .map((opt) => `<button>${opt}</button>`)
+            .join('');
+
+        return `
+            <div class="card" data-i="${index}">
+                <pre>${escapedCode}</pre>
+                <div class="opts">${buttonsHtml}</div>
+                <p class="fb" aria-live="polite"></p>
+            </div>`;
+    }).join('');
+
+    // Use event delegation on #quiz to handle clicks on any answer button
+    $('quiz').addEventListener('click', (event) => {
+        const btn = event.target.closest('button');
+        if (!btn) return;
+
+        const card = btn.closest('.card');
+        const [, correctAnswer, explanation] = QUIZ_QUESTIONS[+card.dataset.i];
+        const isCorrect = btn.textContent === correctAnswer;
+
+        // Clear previous selection states within this card before marking the new choice
+        card.querySelectorAll('button').forEach((b) => b.classList.remove('ok', 'no'));
+        btn.classList.add(isCorrect ? 'ok' : 'no');
+
+        card.querySelector('.fb').textContent = isCorrect
+            ? `Correct. ${explanation}`
+            : 'Not quite. Try again.';
+    });
 </script>
 </body>
 </html>
